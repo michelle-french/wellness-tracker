@@ -1,13 +1,18 @@
 package wellnesstracker.models;
 
-//import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.Id;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.Objects;
 
+@Entity
 public class Profile {
+
+    @Id
+    @GeneratedValue
+    private int id;
 
     @NotBlank(message = "Name is required")
     @Size(min=2, message="Name must be at least 2 characters long")
@@ -21,6 +26,8 @@ public class Profile {
         this.profileFirst = profileFirst;
         this.profileLast = profileLast;
     }
+
+    public Profile(){}
 
     public String getProfileFirst() {
         return profileFirst;
@@ -51,11 +58,11 @@ public class Profile {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Profile profile = (Profile) o;
-        return profileFirst.equals(profile.profileFirst) && profileLast.equals(profile.profileLast);
+        return id == profile.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(profileFirst, profileLast);
+        return Objects.hash(id);
     }
 }
