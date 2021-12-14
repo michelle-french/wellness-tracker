@@ -45,6 +45,10 @@ public class Profile {
         this.profileLast = profileLast;
     }
 
+    public int getId() {
+        return id;
+    }
+
     @Override
     public String toString() {
         return "Profile{" +

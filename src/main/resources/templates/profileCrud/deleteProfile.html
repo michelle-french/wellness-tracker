@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<title>FETTLE</title>
+
+<head th:replace="fragments :: head">
+    <meta charset="UTF-8">
+    <h1  th:href="@{/styles.css}">FETTLE</h1>
+</head>
+
+<body class="container">
+<header th:replace="fragments :: header"></header>
+
+<form method="post">
+
+    <th:block th:each="profile : ${profiles}">
+        <div class="form-group">
+            <label>
+                <span th:text="${profile.profileFirst}"></span>
+                <span th:text="${profile.profileLast}"></span>
+                <input type="checkbox" name="profileIds" th:value="${profile.id}" class="form-control">
+            </label>
+        </div>
+    </th:block>
+
+    <input type="submit" value="Delete" class="btn btn-danger">
+</form>
+
+</body>
+</html>

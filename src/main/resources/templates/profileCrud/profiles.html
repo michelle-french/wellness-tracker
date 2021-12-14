@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<title>FETTLE</title>
+<head>
+    <meta charset="UTF-8">
+    <h1 th:href="@{/styles.css}">FETTLE</h1>
+</head>
+<body>
+<header th:replace="fragments :: header"></header>
+
+<nav>
+<table class="table table-striped">
+    <thead>
+     <tr>
+        <th>ID</th>
+     </tr>
+    </thead>
+    <tr class="nav" th:each="profile : ${profiles}">
+        <td class="nav-item">
+            <a class="nav-link" href="tracker" th:text="${profile.id}"></a>
+        </td>
+        <td class="nav-item">
+            <a class="nav-link" href="tracker" th:text="${profile.profileFirst}"></a></td>
+        <td class="nav-item">
+            <a class="nav-link" href="tracker" th:text="${profile.profileLast}"></a></td>
+    </tr>
+</table>
+</nav>
+
+</body>
+</html>
+
+<!--<table><tr>-->
+<!--    <td>-->
+<!--        <a href="http://example.com">-->
+<!--            Hello World-->
+<!--        </a>-->
+<!--    </td>-->
+<!--</tr></table>-->

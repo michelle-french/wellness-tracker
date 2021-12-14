@@ -1,7 +1,20 @@
 body {
   font-size: 14px;
+  background-color: beige;
+  text-align: justify
 }
 .error {
   color: red;
 }
 
+ head {
+    font-size: 48px;
+    color: teal;
+    text-align: center;
+}
+
+ h1 {
+    font-size: 48px;
+    color: teal;
+    text-align: center;
+}

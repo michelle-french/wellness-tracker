@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>FETTLE</title>
-</head>
+    <head th:replace="fragments :: head">
+        <meta charset="UTF-8">
+        <h1  th:href="@{/styles.css}">FETTLE</h1>
+    </head>
 <body>
 <header th:replace="fragments :: header"></header>
 

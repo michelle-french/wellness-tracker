@@ -20,26 +20,48 @@ public class ProfileController {
 
     @GetMapping
     public String index(Model model){
-        model.addAttribute("title", "WELCOME to FETTLE");
-        return "index"; }
+        model.addAttribute("title", "**WELCOME**");
+        return "profileCrud/index"; }
 
     @GetMapping("profile")
     public String displayProfiles(Model model) {
         model.addAttribute("title", "PROFILES");
-        model.addAttribute("profile", profileRepository.findAll());
-        return "profiles";
+        model.addAttribute("profiles", profileRepository.findAll());
+        return "profileCrud/profiles";
     }
+     @GetMapping("create")
+    public String createProfileForm(Model model){
+        model.addAttribute("title", "ADD PROFILE");
+        model.addAttribute(new Profile());
+        return "profileCrud/create";
+     }
 
-    @GetMapping("create")
-    public String displayCreateProfileForm(@Valid @ModelAttribute Profile profile, Errors errors, Model model) {
+    @PostMapping("create")
+    public String processCreateProfileForm(@Valid @ModelAttribute Profile newProfile, Errors errors, Model model) {
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Create Profile");
-            model.addAttribute(new Profile());
-            return "create";
+            model.addAttribute("title", "ADD PROFILE");
+            return "profileCrud/create";
         }
-        profileRepository.save(profile);
-        return "redirect: ";
+        profileRepository.save(newProfile);
+        return "redirect:/profile";
     }
 
-//    @PostMapping("")
+    @GetMapping("profile/delete")
+    public String deleteProfileForm(Model model) {
+        model.addAttribute("title", "DELETE PROFILE");
+        model.addAttribute("profiles", profileRepository.findAll());
+        return "profileCrud/deleteProfile";
+    }
+
+    @PostMapping("profile/delete")
+    public String processDeleteProfile(@RequestParam(required = false) int[] profileIds) {
+
+        if (profileIds != null) {
+            for (int id : profileIds) {
+                profileRepository.deleteById(id);
+            }
+        }
+        return "redirect:";
+    }
+
 }

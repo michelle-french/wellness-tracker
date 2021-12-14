@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
 <head th:fragment="head">
     <meta charset="UTF-8"/>
-    <title>FETTLE</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" th:href="@{/styles.css}">
+    <link href="../static/styles.css" th:href="@{/styles.css}" rel="stylesheet" />
+    <h1>FETTLE</h1>
+
 </head>
 <body>
 
 <nav th:fragment="header">
-    <h1 th:text="${title}">FETTLE</h1>
+    <h2 th:text="${title}"></h2>
     <ul class="nav">
-        <li class="nav-item"><a class="nav-link" href="/profile">MY PROFILE</a></li>
-        <li class="nav-item"><a class="nav-link" href="/create">Create Profile</a></li>
-        <li class="nav-item"><a class="nav-link" href="/profile/delete">Delete Profile</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile">MY PROFILES</a></li>
+        <li class="nav-item"><a class="nav-link" href="/create">CREATE PROFILE</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/delete">DELETE PROFILE</a></li>
     </ul>
 </nav>
 
