@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>FETTLE APPOINTMENTS</title>
+    <head th:replace="fragments :: head">
+        <meta charset="UTF-8">
+        <h1  th:href="@{/styles.css}">FETTLE</h1>
+    </head>
+<body>
+
+<nav th:fragment="trackerheader">
+    <h2 th:text="${title}"></h2>
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts">APPOINTMENTS</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/meds">MEDICATIONS</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/pain">PAIN TRACKER</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/food">FOOD TRACKER</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/mood">MOOD TRACKER</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/exercise">FITNESS LOG</a></li>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <li class="nav-item"><a class="nav-link" href="/profile">PROFILES</a></li>
+
+    </ul>
+</nav>
+
+
+
+</body>
+</html>

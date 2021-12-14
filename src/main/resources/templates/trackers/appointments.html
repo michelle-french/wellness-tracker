@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+    <meta charset="UTF-8">
+    <title>FETTLE TRACKERS</title>
+    <head th:replace="fragments :: head">
+        <meta charset="UTF-8">
+        <h1  th:href="@{/styles.css}">FETTLE</h1>
+    </head>
+<body>
+<h2 th:text="${title}"></h2>
+<table>
+    <thead>
+    <tr>
+        <th>Appointment</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Location</th>
+    </tr>
+    </thead>
+    <tr th:each="appointment : ${appointments}">
+        <td>
+            <a th:text="${appointment.name}"></a>
+        </td>
+        <td>
+            <a th:text="${appointment.date}"></a></td>
+        <td>
+            <a th:text="${appointment.time}"></a></td>
+        <td>
+            <a th:text="${appointment.location}"></a>
+        </td>
+    </tr>
+</table>
+
+<nav>
+<!--    <h2 th:text="${title}"></h2>-->
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts">SCHEDULED APPOINTMENTS</a> </li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts/create">ADD APPOINTMENT</a> </li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts/delete">REMOVE APPOINTMENT</a> </li>
+        <br>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts">APPOINTMENTS</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/meds">MEDICATIONS</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/pain">PAIN TRACKER</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/food">FOOD TRACKER</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/mood">MOOD TRACKER</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/exercise">FITNESS LOG</a></li>
+        <br>
+        <li class="nav-item"><a class="nav-link" href="/profile">PROFILES</a></li>
+
+    </ul>
+</nav>
+
+
+
+
+
+</body>
+</html>

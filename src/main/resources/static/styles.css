@@ -1,7 +1,6 @@
 body {
-  font-size: 14px;
+  font-size: 16px;
   background-color: beige;
-  text-align: justify
 }
 .error {
   color: red;
@@ -11,10 +10,22 @@ body {
     font-size: 48px;
     color: teal;
     text-align: center;
+    border: 5px solid navy;
 }
 
  h1 {
     font-size: 48px;
     color: teal;
     text-align: center;
+    border: 5px solid navy;
+}
+
+table {
+  font-size: 16px;
+  background-color: beige;
+}
+
+h2 {
+    color: green
+    text-decoration: underline;
 }

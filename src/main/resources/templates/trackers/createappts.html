@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<!--<head>-->
+    <meta charset="UTF-8">
+    <title>FETTLE</title>
+    <head th:replace="fragments :: head">
+        <meta charset="UTF-8">
+        <h1  th:href="@{/styles.css}">FETTLE</h1>
+    </head>
+<body>
+<h2 th:text="${title}"></h2>
+
+
+<form method="post">
+    <div class="form-group">
+        <label>DOCTOR
+            <input th:field="${appointment.name}" class="form-control">
+        </label>
+        <p class="error" th:errors="${appointment.name}"></p>
+    </div>
+    <div class="form-group">
+        <label>   TIME
+            <input th:field="${appointment.time}" class="form-control">
+        </label>
+        <p class="error" th:errors="${appointment.time}"></p>
+    </div>
+    <div class="form-group">
+        <label>   DATE
+            <input th:field="${appointment.date}" class="form-control">
+        </label>
+        <p class="error" th:errors="${appointment.date}"></p>
+    </div>
+    <div class="form-group">
+        <label>LOCATION
+            <input th:field="${appointment.location}" class="form-control">
+        </label>
+        <p class="error" th:errors="${appointment.location}"></p>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="ADD" class="btn btn-success">
+    </div>
+</form>
+
+<nav>
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts">SCHEDULED APPOINTMENTS</a> </li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts/create">ADD APPOINTMENT</a> </li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts/delete">REMOVE APPOINTMENT</a> </li>
+        <br>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts">APPOINTMENTS</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/meds">MEDICATIONS</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/pain">PAIN TRACKER</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/food">FOOD TRACKER</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/mood">MOOD TRACKER</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/exercise">FITNESS LOG</a></li>
+        <br>
+        <li class="nav-item"><a class="nav-link" href="/profile">PROFILES</a></li>
+
+    </ul>
+</nav>
+
+</body>
+</html>
