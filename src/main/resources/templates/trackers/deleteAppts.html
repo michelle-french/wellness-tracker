@@ -7,19 +7,38 @@
     <meta charset="UTF-8">
     <h1  th:href="@{/styles.css}">FETTLE</h1>
 </head>
+<nav>
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts">APPOINTMENTS</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/meds">MEDICATIONS</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/pain">PAIN TRACKER</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/food">FOOD TRACKER</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/mood">MOOD TRACKER</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/exercise">FITNESS LOG</a></li>
+    </ul>
+</nav>
 
-<body background="img/demo-image-01.jpg" class="container">
+<body background="/img/bg-signup.jpg" class="container">
+
 <header>
     <h2>REMOVE APPOINTMENT</h2></header>
+
+<nav>
+    <ul class="nav">
+<li class="nav-item"><a class="nav-link" href="/profile/tracker/appts">SCHEDULED APPOINTMENTS</a> </li>
+<li class="nav-item"><a class="nav-link" href="/profile/tracker/appts/create">ADD APPOINTMENT</a> </li>
+<li class="nav-item"><a class="nav-link" href="/profile/tracker/appts/delete">REMOVE APPOINTMENT</a> </li>
+    </ul>
+</nav>
 
 <form method="post">
 
     <th:block th:each="appointment : ${appointments}">
-        <div class="form-group">
+        <div class="form-select-sm">
             <label>
                 <span th:text="${appointment.name}"></span>
                 <span th:text="${appointment.date}"></span>
-                <input type="checkbox" name="appointmentIds" th:value="${appointment.id}" class="form-control">
+                <input type="checkbox" name="appointmentIds" th:value="${appointment.id}" class=".btn-check">
             </label>
         </div>
     </th:block>
@@ -28,16 +47,16 @@
 
 <nav>
     <ul class="nav">
-        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts">SCHEDULED APPOINTMENTS</a> </li>
-        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts/create">ADD APPOINTMENT</a> </li>
-        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts/delete">REMOVE APPOINTMENT</a> </li>
-        <br>
-        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts">APPOINTMENTS</a></li>
-        <li class="nav-item"><a class="nav-link" href="/profile/tracker/meds">MEDICATIONS</a></li>
-        <li class="nav-item"><a class="nav-link" href="/profile/tracker/pain">PAIN TRACKER</a></li>
-        <li class="nav-item"><a class="nav-link" href="/profile/tracker/food">FOOD TRACKER</a></li>
-        <li class="nav-item"><a class="nav-link" href="/profile/tracker/mood">MOOD TRACKER</a></li>
-        <li class="nav-item"><a class="nav-link" href="/profile/tracker/exercise">FITNESS LOG</a></li>
+<!--        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts">SCHEDULED APPOINTMENTS</a> </li>-->
+<!--        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts/create">ADD APPOINTMENT</a> </li>-->
+<!--        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts/delete">REMOVE APPOINTMENT</a> </li>-->
+<!--        <br>-->
+<!--        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts">APPOINTMENTS</a></li>-->
+<!--        <li class="nav-item"><a class="nav-link" href="/profile/tracker/meds">MEDICATIONS</a></li>-->
+<!--        <li class="nav-item"><a class="nav-link" href="/profile/tracker/pain">PAIN TRACKER</a></li>-->
+<!--        <li class="nav-item"><a class="nav-link" href="/profile/tracker/food">FOOD TRACKER</a></li>-->
+<!--        <li class="nav-item"><a class="nav-link" href="/profile/tracker/mood">MOOD TRACKER</a></li>-->
+<!--        <li class="nav-item"><a class="nav-link" href="/profile/tracker/exercise">FITNESS LOG</a></li>-->
         <br>
         <li class="nav-item"><a class="nav-link" href="/profile">PROFILES</a></li>
 

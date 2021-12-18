@@ -20,7 +20,7 @@ public class ProfileController {
 
     @GetMapping
     public String index(Model model){
-        model.addAttribute("title", "**WELCOME**");
+        model.addAttribute("title", "WELCOME");
         return "profileCrud/index"; }
 
     @GetMapping("profile")

@@ -6,9 +6,26 @@
         <meta charset="UTF-8">
         <h1  th:href="@{/styles.css}">FETTLE</h1>
     </head>
-<body background="img/bg-signup.jpg">
+<body background="/img/bg-signup.jpg">
+<nav class="nav">
+    <li><a class="nav-link" href="/profile/tracker/appts">APPOINTMENTS</a></li>
+    <li><a class="nav-link" href="/profile/tracker/meds">MEDICATIONS</a></li>
+    <li><a class="nav-link" href="/profile/tracker/pain">PAIN TRACKER</a></li>
+    <li><a class="nav-link" href="/profile/tracker/food">FOOD TRACKER</a></li>
+    <li><a class="nav-link" href="/profile/tracker/mood">MOOD TRACKER</a></li>
+    <li><a class="nav-link" href="/profile/tracker/exercise">FITNESS LOG</a></li>
+</nav>
 <h2 th:text="${title}"></h2>
-<table>
+<nav class="nav">
+    <!--    <h2 th:text="${title}"></h2>-->
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts">SCHEDULED APPOINTMENTS</a> </li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts/create">ADD APPOINTMENT</a> </li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts/delete">REMOVE APPOINTMENT</a> </li>
+    </ul>
+</nav>
+
+<table class="table">
     <thead>
     <tr>
         <th>Appointment</th>
@@ -31,21 +48,24 @@
     </tr>
 </table>
 
-<nav>
-<!--    <h2 th:text="${title}"></h2>-->
-    <ul class="nav">
-        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts">SCHEDULED APPOINTMENTS</a> </li>
-        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts/create">ADD APPOINTMENT</a> </li>
-        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts/delete">REMOVE APPOINTMENT</a> </li>
-        <br>
-        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts">APPOINTMENTS</a></li>
-        <li class="nav-item"><a class="nav-link" href="/profile/tracker/meds">MEDICATIONS</a></li>
-        <li class="nav-item"><a class="nav-link" href="/profile/tracker/pain">PAIN TRACKER</a></li>
-        <li class="nav-item"><a class="nav-link" href="/profile/tracker/food">FOOD TRACKER</a></li>
-        <li class="nav-item"><a class="nav-link" href="/profile/tracker/mood">MOOD TRACKER</a></li>
-        <li class="nav-item"><a class="nav-link" href="/profile/tracker/exercise">FITNESS LOG</a></li>
-        <br>
-        <li class="nav-item"><a class="nav-link" href="/profile">PROFILES</a></li>
+<!--<nav class="nav">-->
+<!--&lt;!&ndash;    <h2 th:text="${title}"></h2>&ndash;&gt;-->
+<!--    <ul class="nav">-->
+<!--        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts">SCHEDULED APPOINTMENTS</a> </li>-->
+<!--        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts/create">ADD APPOINTMENT</a> </li>-->
+<!--        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts/delete">REMOVE APPOINTMENT</a> </li>-->
+<!--        <nav class="nav">-->
+<!--        <li><a class="nav-link" href="/profile/tracker/appts">APPOINTMENTS</a></li>-->
+<!--        <li><a class="nav-link" href="/profile/tracker/meds">MEDICATIONS</a></li>-->
+<!--        <li><a class="nav-link" href="/profile/tracker/pain">PAIN TRACKER</a></li>-->
+<!--        <li><a class="nav-link" href="/profile/tracker/food">FOOD TRACKER</a></li>-->
+<!--        <li><a class="nav-link" href="/profile/tracker/mood">MOOD TRACKER</a></li>-->
+<!--        <li><a class="nav-link" href="/profile/tracker/exercise">FITNESS LOG</a></li>-->
+<!--        </nav>>-->
+<nav class="nav">
+    <ul>
+
+    <li><a class="nav-link" href="/profile">PROFILES</a></li>
 
     </ul>
 </nav>
