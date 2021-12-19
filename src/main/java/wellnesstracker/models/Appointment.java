@@ -41,6 +41,13 @@ public class Appointment {
 //    }
 
 
+    public Appointment(String name, String date, String time, String location) {
+        this.name = name;
+        this.date = date;
+        this.time = time;
+        this.location = location;
+    }
+
     public Appointment(){}
 
     public String getName() {return name;}

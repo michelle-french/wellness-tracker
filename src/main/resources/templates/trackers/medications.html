@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<meta charset="UTF-8">
+<title>FETTLE TRACKERS</title>
+<head th:replace="fragments :: head">
     <meta charset="UTF-8">
-    <title>FETTLE TRACKERS</title>
-    <head th:replace="fragments :: head">
-        <meta charset="UTF-8">
-        <h1  th:href="@{/styles.css}">FETTLE</h1>
-    </head>
+    <h1  th:href="@{/styles.css}">FETTLE</h1>
+</head>
 <body background="/img/bg-signup.jpg" class="container">
 <nav class="nav">
     <li><a class="nav-link" href="/profile/tracker/appts">APPOINTMENTS</a></li>
@@ -24,37 +24,5 @@
         <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts/delete">REMOVE APPOINTMENT</a> </li>
     </ul>
 </nav>
-
-<table class="table">
-    <thead>
-    <tr>
-        <th>Appointment</th>
-        <th>Date</th>
-        <th>Time</th>
-        <th>Location</th>
-    </tr>
-    </thead>
-    <tr th:each="appointment : ${appointments}">
-        <td>
-            <a th:text="${appointment.name}"></a>
-        </td>
-        <td>
-            <a th:text="${appointment.date}"></a></td>
-        <td>
-            <a th:text="${appointment.time}"></a></td>
-        <td>
-            <a th:text="${appointment.location}"></a>
-        </td>
-    </tr>
-</table>
-
-<nav>
-    <ul class="nav">
-
-        <li class="nav-item"><a class="nav-link" href="/profile">PROFILES</a></li>
-
-    </ul>
-</nav>
-
 </body>
 </html>

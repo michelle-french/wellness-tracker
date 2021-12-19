@@ -118,7 +118,7 @@ h1, .h1 {
   font-size: 150px;
   font-align: centered;
   text-indent: 120px;
-  letter-spacing: 10px;
+  letter-spacing: 15px;
   text-shadow: 4px 2px 8px teal;
 }
 @media (min-width: 1200px) {
@@ -1227,7 +1227,7 @@ progress {
   }
 
   .offset-md-1 {
-    margin-left: 8.33333333%;
+    margin-left: 7.5%;
   }
 
   .offset-md-2 {
