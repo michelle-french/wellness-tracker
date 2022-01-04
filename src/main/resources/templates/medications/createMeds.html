@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<!--<head>-->
+<meta charset="UTF-8">
+<title>FETTLE</title>
+<head th:replace="fragments :: head">
+    <meta charset="UTF-8">
+    <h1  th:href="@{/styles.css}">FETTLE</h1>
+</head>
+<body background="/img/bg-signup.jpg" class="container">
+
+<nav>
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts">APPOINTMENTS</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/meds">MEDICATIONS</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/pain">PAIN TRACKER</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/food">FOOD TRACKER</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/mood">MOOD TRACKER</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/exercise">FITNESS LOG</a></li>
+    </ul>
+</nav>
+
+<h2 th:text="${title}"></h2>
+
+<nav>
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/meds">MEDICATIONS SCHEDULE</a> </li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/meds/create">ADD MEDICATION</a> </li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/meds/delete">REMOVE MEDICATION</a> </li>
+    </ul>
+</nav>
+
+<form class="offset-md-1" method="post">
+    <div class="form-group">
+        <label>MEDICINE
+            <input th:field="${medication.medName}" class="form-control">
+        </label>
+        <p class="error" th:errors="${medication.medName}"></p>
+    </div>
+    <div class="form-group">
+        <label>DOSAGE
+            <input th:field="${medication.medDose}" class="form-control">
+        </label>
+        <p class="error" th:errors="${medication.medDose}"></p>
+    </div>
+        <label>FREQUENCY
+            <input th:field="${medication.frequency}" class="form-control">
+        </label>
+        <p class="error" th:errors="${medication.frequency}"></p>
+    </div>
+    <div class="form-group">
+        <label>DATE TAKEN
+            <input th:field="${medication.date}" class="form-control">
+        </label>
+        <p class="error" th:errors="${medication.date}"></p>
+    </div>
+    <div class="form-group">
+        <label>TIME TAKEN
+            <input th:field="${medication.timeTaken}" class="form-control">
+        </label>
+        <p class="error" th:errors="${medication.timeTaken}"></p>
+    </div>
+    <label>PROFILE</label>
+    <select  class="form-select-sm" th:field="${medication.profile}">
+        <option th:each="profile : ${profiles}"
+                th:value="${profile.id}"
+                th:text="${profile.profileFirst}"
+        ></option>
+    </select>
+
+    </div>
+    <div class="form-group">
+        <input type="submit" value="ADD" class="btn btn-success">
+    </div>
+</form>
+
+<nav>
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link-2" href="/profile">PROFILES</a></li>
+    </ul>
+</nav>
+
+</body>
+</html>

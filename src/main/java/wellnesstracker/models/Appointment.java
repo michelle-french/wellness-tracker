@@ -1,7 +1,7 @@
 package wellnesstracker.models;
 
 import org.springframework.format.annotation.DateTimeFormat;
-
+import javax.persistence.ManyToOne;
 import javax.persistence.*;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
@@ -33,19 +33,17 @@ public class Appointment {
     @NotBlank
     private String location;
 
-//    public Appointment(String name, Date date, String time, String location) {
-//        this.name = name;
-//        this.date = date;
-//        this.time = time;
-//        this.location = location;
-//    }
+    @ManyToOne
+    @NotNull(message = "Please Select Profile")
+    private Profile profile;
 
 
-    public Appointment(String name, String date, String time, String location) {
+    public Appointment(String name, String date, String time, String location, Profile profile) {
         this.name = name;
         this.date = date;
         this.time = time;
         this.location = location;
+        this.profile = profile;
     }
 
     public Appointment(){}
@@ -77,6 +75,10 @@ public class Appointment {
     public String getLocation() {return location;}
 
     public void setLocation(String location) {this.location = location;}
+
+    public Profile getProfile() {return profile;}
+
+    public void setProfile(Profile profile) {this.profile = profile;}
 
     public int getId() {return id;}
 

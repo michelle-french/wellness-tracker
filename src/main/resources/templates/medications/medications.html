@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<meta charset="UTF-8">
+<title>FETTLE TRACKERS</title>
+<head th:replace="fragments :: head">
     <meta charset="UTF-8">
-    <title>FETTLE TRACKERS</title>
-    <head th:replace="fragments :: head">
-        <meta charset="UTF-8">
-        <h1  th:href="@{/styles.css}">FETTLE</h1>
-    </head>
+    <h1  th:href="@{/styles.css}">FETTLE</h1>
+</head>
 <body background="/img/bg-signup.jpg" class="container">
 <nav class="nav">
     <li><a class="nav-link" href="/profile/tracker/appts">APPOINTMENTS</a></li>
@@ -19,35 +19,40 @@
 <nav class="nav">
 
     <ul class="nav">
-        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts">SCHEDULED APPOINTMENTS</a> </li>
-        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts/create">ADD APPOINTMENT</a> </li>
-        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts/delete">REMOVE APPOINTMENT</a> </li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/meds"MEDICATIONS></a> </li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/meds/create">ADD MEDICATION</a> </li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/meds/delete">REMOVE MEDICATION</a> </li>
     </ul>
 </nav>
 
 <table class="table">
     <thead>
     <tr>
-        <th>Appointment</th>
+        <th>Medication</th>
         <th>For</th>
-        <th>Date</th>
-        <th>Time</th>
-        <th>Location</th>
+        <th>Dose</th>
+        <th>Frequency(hours)</th>
+        <th>Last Day Taken</th>
+        <th>Last Time Taken</th>
     </tr>
     </thead>
-    <tr th:each="appointment : ${appointments}">
+    <tr th:each="medication : ${medications}">
         <td>
-            <a th:text="${appointment.name}"></a>
+            <a th:text="${medication.medName}"></a>
         </td>
         <td>
-            <a th:text="${appointment.profile.profileFirst}"></a>
+            <a th:text="${medication.profile.profileFirst}"></a>
         </td>
         <td>
-            <a th:text="${appointment.date}"></a></td>
+            <a th:text="${medication.medDose}"></a>
+        </td>
         <td>
-            <a th:text="${appointment.time}"></a></td>
+            <a th:text="${medication.frequency}"></a></td>
         <td>
-            <a th:text="${appointment.location}"></a>
+            <a th:text="${medication.date}"></a>
+        </td>
+        <td>
+            <a th:text="${medication.timeTaken}"></a>
         </td>
     </tr>
 </table>
@@ -59,6 +64,5 @@
 
     </ul>
 </nav>
-
 </body>
 </html>

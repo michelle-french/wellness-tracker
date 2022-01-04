@@ -55,6 +55,17 @@
         </label>
         <p class="error" th:errors="${appointment.location}"></p>
     </div>
+    <div>
+        <label>Profile</label>
+            <select  class="form-select-sm" th:field="${appointment.profile}">
+                <option th:each="profile : ${profiles}"
+                        th:value="${profile.id}"
+                        th:text="${profile.profileFirst}"
+                ></option>
+            </select>
+<!--            <p class="error" th:errors="${appointment.profile}"></p>-->
+<!--        </label>-->
+    </div>
     <div class="form-group">
         <input type="submit" value="ADD" class="btn btn-success">
     </div>
@@ -62,7 +73,7 @@
 
 <nav>
     <ul class="nav">
-        <li class="nav-item"><a class="nav-link" href="/profile">PROFILES</a></li>
+        <li class="nav-item"><a class="nav-link-2" href="/profile">PROFILES</a></li>
     </ul>
 </nav>
 

@@ -129,7 +129,7 @@ h1, .h1 {
 
 h2, .h2 {
   font-size: 18px;
-  color: salmon;
+  color:	#8e916b;
   text-indent: 120px;
   letter-spacing: 5px;
 }
@@ -4065,8 +4065,16 @@ textarea.form-control-lg {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
-  color: #64a19d;
+  color: 	#f07f95;
   text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+.nav-link-2 {
+  display: block;
+  padding: 0.5rem 0.1rem;
+  color: #01687d;
+  font-weight: bold;
+  text-decoration: underline;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {

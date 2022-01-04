@@ -3,8 +3,11 @@ package wellnesstracker.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -21,6 +24,12 @@ public class Profile {
     @NotBlank(message = "Name is required")
     @Size(min=2, message="Name must be at least 2 characters long")
     private String profileLast;
+
+    @OneToMany(mappedBy = "profile")
+    private final List<Appointment> appointments = new ArrayList<>();
+
+    @OneToMany(mappedBy = "profile")
+    private final List<Medication> medications = new ArrayList<>();
 
     public Profile(String profileFirst, String profileLast) {
         this.profileFirst = profileFirst;
@@ -47,6 +56,14 @@ public class Profile {
 
     public int getId() {
         return id;
+    }
+
+    public List<Appointment> getAppointments() {
+        return appointments;
+    }
+
+    public List<Medication> getMedications() {
+        return medications;
     }
 
     @Override

@@ -7,18 +7,20 @@
     <h1  th:href="@{/styles.css}">FETTLE</h1>
 </head>
 
-<body background="/img/bg-masthead.jpg" class="container">
+<body background="/img/bg-signup.jpg" class="container">
 
 <header th:replace="fragments :: header"></header>
+<br>
+<br>
 <br>
 <br>
 <nav>
 <table>
     <tr class="nav" th:each="profile : ${profiles}">
         <td class="nav-item">
-            <a class="nav-link" href="/profile/tracker" th:text="${profile.profileFirst}"></a></td>
+            <a class="nav-link-2" href="/profile/tracker" th:text="${profile.profileFirst}"></a></td>
         <td class="nav-item">
-            <a class="nav-link" href="/profile/tracker" th:text="${profile.profileLast}"></a></td>
+            <a class="nav-link-2" href="/profile/tracker" th:text="${profile.profileLast}"></a></td>
     </tr>
 </table>
 </nav>

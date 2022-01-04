@@ -1,5 +1,6 @@
 package wellnesstracker.controllers;
 
+import wellnesstracker.data.AppointmentRepository;
 import wellnesstracker.data.ProfileRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,9 @@ public class ProfileController {
     @Autowired
     private ProfileRepository profileRepository;
 
+    @Autowired
+    private AppointmentRepository appointmentRepository;
+
     @GetMapping
     public String index(Model model){
         model.addAttribute("title", "WELCOME");
@@ -33,6 +37,7 @@ public class ProfileController {
     public String createProfileForm(Model model){
         model.addAttribute("title", "ADD PROFILE");
         model.addAttribute(new Profile());
+        model.addAttribute("appointments", appointmentRepository.findAll());
         return "profileCrud/create";
      }
 

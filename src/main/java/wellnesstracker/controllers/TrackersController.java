@@ -40,6 +40,7 @@ public class TrackersController {
     public String addApptsForm(Model model){
         model.addAttribute("title", "ADD APPOINTMENT");
         model.addAttribute(new Appointment());
+        model.addAttribute("profiles", profileRepository.findAll());
         return "trackers/createappts";
     }
 
