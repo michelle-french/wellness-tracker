@@ -27,7 +27,7 @@
     <ul class="nav">
         <li class="nav-item"><a class="nav-link" href="/profile/tracker/meds">SCHEDULED MEDICATIONS</a> </li>
         <li class="nav-item"><a class="nav-link" href="/profile/tracker/meds/create">ADD MEDICATION</a> </li>
-        <li class="nav-item"><a class="nav-link" href="/profile/tracker/meds/delete">REMOVE MEDICATION</a> </li>
+<!--        <li class="nav-item"><a class="nav-link" href="/profile/tracker/meds/delete">REMOVE MEDICATION</a> </li>-->
     </ul>
 </nav>
 
@@ -37,7 +37,7 @@
         <div class="form-select-sm">
             <label>
                 <span th:text="${medication.medName}"></span>
-                <span th:text="${medication.date}"></span>
+                <span th:text="${medication.profile.profileFirst}"></span>
                 <input type="checkbox" name="medicationIds" th:value="${medication.id}" class=".btn-check">
             </label>
         </div>

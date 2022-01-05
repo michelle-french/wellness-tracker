@@ -1,11 +1,11 @@
 package wellnesstracker.models;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
@@ -23,25 +23,23 @@ public class Medication {
     @NotBlank(message = "Please provide dosage")
     private String medDose;
 
-    @NotBlank(message = "Please provide frequency ")
-    private String frequency;
+    @Min(1)
+    @Max(24)
+    private Integer frequency;
 
-    @DateTimeFormat(pattern = "MM-dd-yy")
-    @NotBlank(message = "Please provide a date")
-    private String date;
+    private MedDay day;
 
-    @NotBlank
-    private String timeTaken;
+    private Time timeTaken;
 
     @ManyToOne
     @NotNull(message = "Please Select Profile")
     private Profile profile;
 
-    public Medication(String medName, String medDose, String frequency, String date, String timeTaken, Profile profile) {
+    public Medication(String medName, String medDose, Integer frequency, MedDay day, Time timeTaken, Profile profile) {
         this.medName = medName;
         this.medDose = medDose;
         this.frequency = frequency;
-        this.date = date;
+        this.day = day;
         this.timeTaken = timeTaken;
         this.profile = profile;
     }
@@ -64,27 +62,27 @@ public class Medication {
         this.medDose = medDose;
     }
 
-    public String getFrequency() {
+    public Integer getFrequency() {
         return frequency;
     }
 
-    public void setFrequency(String frequency) {
+    public void setFrequency(Integer frequency) {
         this.frequency = frequency;
     }
 
-    public String getDate() {
-        return date;
+    public MedDay getDay() {
+        return day;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDay(MedDay day) {
+        this.day = day;
     }
 
-    public String getTimeTaken() {
+    public Time getTimeTaken() {
         return timeTaken;
     }
 
-    public void setTimeTaken(String timeTaken) {
+    public void setTimeTaken(Time timeTaken) {
         this.timeTaken = timeTaken;
     }
 
@@ -106,7 +104,7 @@ public class Medication {
                 "medName='" + medName + '\'' +
                 ", medDose='" + medDose + '\'' +
                 ", frequency='" + frequency + '\'' +
-                ", date='" + date + '\'' +
+                ", date='" + day + '\'' +
                 ", timeTaken='" + timeTaken + '\'' +
                 '}';
     }

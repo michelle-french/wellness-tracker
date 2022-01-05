@@ -25,7 +25,7 @@
 <nav>
     <ul class="nav">
         <li class="nav-item"><a class="nav-link" href="/profile/tracker/meds">MEDICATIONS SCHEDULE</a> </li>
-        <li class="nav-item"><a class="nav-link" href="/profile/tracker/meds/create">ADD MEDICATION</a> </li>
+<!--        <li class="nav-item"><a class="nav-link" href="/profile/tracker/meds/create">ADD MEDICATION</a> </li>-->
         <li class="nav-item"><a class="nav-link" href="/profile/tracker/meds/delete">REMOVE MEDICATION</a> </li>
     </ul>
 </nav>
@@ -43,30 +43,41 @@
         </label>
         <p class="error" th:errors="${medication.medDose}"></p>
     </div>
-        <label>FREQUENCY
+        <label>FREQUENCY(in Hours)
             <input th:field="${medication.frequency}" class="form-control">
         </label>
         <p class="error" th:errors="${medication.frequency}"></p>
     </div>
     <div class="form-group">
-        <label>DATE TAKEN
-            <input th:field="${medication.date}" class="form-control">
+        <label>DAY TAKEN
+            <select class="form-select" th:field="${medication.day}">
+                <option th:each="day : ${days}"
+                        th:value="${day}"
+                        th:text="${day.displayName}"
+                ></option>
+            </select>
         </label>
-        <p class="error" th:errors="${medication.date}"></p>
+        <p class="error" th:errors="${medication.day}"></p>
     </div>
     <div class="form-group">
         <label>TIME TAKEN
-            <input th:field="${medication.timeTaken}" class="form-control">
+            <select class="form-select" th:field="${medication.timeTaken}">
+                <option th:each="time : ${times}"
+                        th:value="${time}"
+                        th:text="${time.displayName}"
+                ></option>
+            </select>
         </label>
         <p class="error" th:errors="${medication.timeTaken}"></p>
     </div>
-    <label>PROFILE</label>
-    <select  class="form-select-sm" th:field="${medication.profile}">
+    <label>PROFILE
+    <select  class="form-select" th:field="${medication.profile}">
         <option th:each="profile : ${profiles}"
                 th:value="${profile.id}"
                 th:text="${profile.profileFirst}"
         ></option>
     </select>
+    </label>
 
     </div>
     <div class="form-group">
