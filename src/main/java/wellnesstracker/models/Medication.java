@@ -27,7 +27,7 @@ public class Medication {
     @Max(24)
     private Integer frequency;
 
-    private MedDay day;
+    private Day day;
 
     private Time timeTaken;
 
@@ -35,7 +35,7 @@ public class Medication {
     @NotNull(message = "Please Select Profile")
     private Profile profile;
 
-    public Medication(String medName, String medDose, Integer frequency, MedDay day, Time timeTaken, Profile profile) {
+    public Medication(String medName, String medDose, Integer frequency, Day day, Time timeTaken, Profile profile) {
         this.medName = medName;
         this.medDose = medDose;
         this.frequency = frequency;
@@ -70,11 +70,11 @@ public class Medication {
         this.frequency = frequency;
     }
 
-    public MedDay getDay() {
+    public Day getDay() {
         return day;
     }
 
-    public void setDay(MedDay day) {
+    public void setDay(Day day) {
         this.day = day;
     }
 

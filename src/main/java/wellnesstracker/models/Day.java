@@ -1,6 +1,6 @@
 package wellnesstracker.models;
 
-public enum MedDay {
+public enum Day {
 
     SUNDAY("Sunday"),
     MONDAY("Monday"),
@@ -13,7 +13,7 @@ public enum MedDay {
 
     private final String displayName;
 
-    MedDay(String displayName) {
+    Day(String displayName) {
         this.displayName = displayName;
     }
 

@@ -1,12 +1,10 @@
 package wellnesstracker.models;
 
-import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.ManyToOne;
 import javax.persistence.*;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -19,16 +17,10 @@ public class Appointment {
     @NotBlank
     private String name;
 
-//    @NotNull(message = "please format correctly")
-//    @Future
-//    @DateTimeFormat(pattern = "dd/MM/yyyy")
-//    @Temporal(TemporalType.DATE)
-//    private Date date;
     @NotBlank(message = "Please enter date")
     private String date;
 
-    @NotBlank
-    private String time;
+    private Time time;
 
     @NotBlank
     private String location;
@@ -38,7 +30,7 @@ public class Appointment {
     private Profile profile;
 
 
-    public Appointment(String name, String date, String time, String location, Profile profile) {
+    public Appointment(String name, String date, Time time, String location, Profile profile) {
         this.name = name;
         this.date = date;
         this.time = time;
@@ -60,17 +52,9 @@ public class Appointment {
         this.date = date;
     }
 
-    //    public Date getDate() {
-//        return date;
-//    }
-//
-//    public void setDate(Date date) {
-//        this.date = date;
-//    }
+    public Time getTime() {return time;}
 
-    public String getTime() {return time;}
-
-    public void setTime(String time) {this.time = time;}
+    public void setTime(Time time) {this.time = time;}
 
     public String getLocation() {return location;}
 

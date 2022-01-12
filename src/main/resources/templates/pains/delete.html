@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<meta charset="UTF-8">
+<title>FETTLE</title>
+<head th:replace="fragments :: head">
+    <meta charset="UTF-8">
+    <h1  th:href="@{/styles.css}">FETTLE</h1>
+</head>
+<nav>
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts">APPOINTMENTS</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/meds">MEDICATIONS</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/pain">PAIN TRACKER</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/food">FOOD TRACKER</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/mood">MOOD TRACKER</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/exercise">FITNESS LOG</a></li>
+    </ul>
+</nav>
+
+<body background="/img/bg-signup.jpg" class="container">
+
+    <h2 th:text="${title}"></h2>
+    <nav class="nav">
+        <ul class="nav">
+            <li class="nav-item"><a class="nav-link" href="/profile/tracker/pain">PAIN MAP</a> </li>
+            <li class="nav-item"><a class="nav-link" href="/profile/tracker/pain/add">ADD EPISODE</a> </li>
+<!--            <li class="nav-item"><a class="nav-link" href="/profile/tracker/delete">DELETE EPISODE</a> </li>-->
+        </ul>
+    </nav>
+
+    <form method="post">
+        <th:block th:each="pain : ${pains}">
+            <div class="form-select-sm">
+                <label>
+                    <span th:text="${pain.painLocation}"></span>
+                    <span th:text="${pain.day.displayName}"></span>
+                    <span th:text="${pain.time.displayName}"></span>
+                    <span th:text="${pain.profile.profileFirst}"></span>
+                    <input type="checkbox" name="painIds" th:value="${pain.id}" class=".btn-check">
+                </label>
+            </div>
+        </th:block>
+        <input type="submit" value="Remove" class="btn btn-danger">
+    </form>
+
+
+
+
+    <nav>
+        <ul class="nav">
+            <li class="nav-item"><a class="nav-link-2" href="/profile">PROFILES</a></li>
+        </ul>
+    </nav>
+
+</body>
+</html>

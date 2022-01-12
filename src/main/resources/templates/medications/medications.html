@@ -17,9 +17,8 @@
 </nav>
 <h2 th:text="${title}"></h2>
 <nav class="nav">
-
     <ul class="nav">
-        <li class="nav-item"><a class="nav-link" href="/profile/tracker/meds"MEDICATIONS></a> </li>
+<!--        <li class="nav-item"><a class="nav-link" href="/profile/tracker/meds">MEDICATIONS</a> </li>-->
         <li class="nav-item"><a class="nav-link" href="/profile/tracker/meds/create">ADD MEDICATION</a> </li>
         <li class="nav-item"><a class="nav-link" href="/profile/tracker/meds/delete">REMOVE MEDICATION</a> </li>
     </ul>
@@ -31,7 +30,7 @@
         <th>Medication</th>
         <th>For</th>
         <th>Dose</th>
-        <th>Frequency(hours)</th>
+        <th>Frequency</th>
         <th>Last Day Taken</th>
         <th>Last Time Taken</th>
     </tr>
@@ -41,18 +40,18 @@
             <a th:text="${medication.medName}"></a>
         </td>
         <td>
-            <a th:text="${medication.profile.profileFirst}"></a>
+            <a th:text="${medication.profile.profileFirst + medication.profile.profileLast}"></a>
         </td>
         <td>
             <a th:text="${medication.medDose}"></a>
         </td>
         <td>
-            <a th:text="${medication.frequency}"></a></td>
+            <a th:text="${medication.frequency}+ Hours"></a></td>
         <td>
-            <a th:text="${medication.day}"></a>
+            <a th:text="${medication.day.displayName}"></a>
         </td>
         <td>
-            <a th:text="${medication.timeTaken}"></a>
+            <a th:text="${medication.timeTaken.displayName}"></a>
         </td>
     </tr>
 </table>

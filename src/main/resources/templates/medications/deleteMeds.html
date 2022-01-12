@@ -37,7 +37,7 @@
         <div class="form-select-sm">
             <label>
                 <span th:text="${medication.medName}"></span>
-                <span th:text="${medication.profile.profileFirst}"></span>
+                <span th:text="${medication.profile.profileFirst + medication.profile.profileLast}"></span>
                 <input type="checkbox" name="medicationIds" th:value="${medication.id}" class=".btn-check">
             </label>
         </div>

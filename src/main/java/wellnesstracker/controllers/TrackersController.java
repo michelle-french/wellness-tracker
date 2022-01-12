@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import wellnesstracker.data.AppointmentRepository;
 import wellnesstracker.data.ProfileRepository;
 import wellnesstracker.models.Appointment;
+import wellnesstracker.models.Time;
 
 import javax.validation.Valid;
 
@@ -41,6 +42,7 @@ public class TrackersController {
         model.addAttribute("title", "ADD APPOINTMENT");
         model.addAttribute(new Appointment());
         model.addAttribute("profiles", profileRepository.findAll());
+        model.addAttribute("times", Time.values());
         return "trackers/createappts";
     }
 

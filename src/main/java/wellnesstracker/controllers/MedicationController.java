@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import wellnesstracker.data.AppointmentRepository;
 import wellnesstracker.data.MedicationRepository;
 import wellnesstracker.data.ProfileRepository;
-import wellnesstracker.models.MedDay;
+import wellnesstracker.models.Day;
 import wellnesstracker.models.Time;
 import wellnesstracker.models.Medication;
 
@@ -39,7 +39,7 @@ public class MedicationController {
         model.addAttribute("title", "ADD MEDICATION");
         model.addAttribute(new Medication());
         model.addAttribute("profiles", profileRepository.findAll());
-        model.addAttribute("days", MedDay.values());
+        model.addAttribute("days", Day.values());
         model.addAttribute("times", Time.values());
         return"medications/createMeds";
     }

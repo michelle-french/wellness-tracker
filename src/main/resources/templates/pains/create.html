@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <!--<head>-->
+<meta charset="UTF-8">
+<title>FETTLE</title>
+<head th:replace="fragments :: head">
     <meta charset="UTF-8">
-    <title>FETTLE</title>
-    <head th:replace="fragments :: head">
-        <meta charset="UTF-8">
-        <h1  th:href="@{/styles.css}">FETTLE</h1>
-    </head>
+    <h1  th:href="@{/styles.css}">FETTLE</h1>
+</head>
 <body background="/img/bg-signup.jpg" class="container">
 
 <nav>
@@ -21,55 +21,59 @@
 </nav>
 
 <h2 th:text="${title}"></h2>
-
-<nav>
+<nav class="nav">
     <ul class="nav">
-        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts">SCHEDULED APPOINTMENTS</a> </li>
-        <li class="nav-item"><a class="nav-link" href="/profile/tracker/appts/delete">REMOVE APPOINTMENT</a> </li>
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/pain">PAIN MAP</a> </li>
+<!--        <li class="nav-item"><a class="nav-link" href="/profile/tracker/pain/add">ADD EPISODE</a> </li>-->
+        <li class="nav-item"><a class="nav-link" href="/profile/tracker/pain/remove">DELETE EPISODE</a> </li>
     </ul>
 </nav>
 
 <form class="offset-md-1" method="post">
     <div class="form-group">
-        <label>DOCTOR
-            <input th:field="${appointment.name}" class="form-control">
+        <label>Pain Location
+            <input th:field="${pain.painLocation}" class="form-control">
         </label>
-        <p class="error" th:errors="${appointment.name}"></p>
+        <p class="error" th:errors="${pain.painLocation}"></p>
     </div>
     <div class="form-group">
-        <label>   TIME
-            <select class="form-select" th:field="${appointment.time}">
+        <label>Pain Severity (1-10)
+            <input th:field="${pain.severity}" class="form-control">
+        </label>
+        <p class="error" th:errors="${pain.severity}"></p>
+    </div>
+    <div class="form-group">
+        <label>Day
+            <select class="form-select" th:field="${pain.day}">
+                <option th:each="day : ${days}"
+                        th:value="${day}"
+                        th:text="${day.displayName}"
+                ></option>
+            </select>
+        </label>
+        <p class="error" th:errors="${pain.day}"></p>
+    </div>
+    <div class="form-group">
+        <label>Time
+            <select class="form-select" th:field="${pain.time}">
                 <option th:each="time : ${times}"
                         th:value="${time}"
                         th:text="${time.displayName}"
                 ></option>
             </select>
-<!--            <input th:field="${appointment.time}" class="form-control">-->
         </label>
-        <p class="error" th:errors="${appointment.time}"></p>
+        <p class="error" th:errors="${pain.time}"></p>
     </div>
     <div class="form-group">
-        <label>   DATE
-            <input th:field="${appointment.date}" class="form-control">
-        </label>
-        <p class="error" th:errors="${appointment.date}"></p>
-    </div>
-    <div class="form-group">
-        <label>LOCATION
-            <input th:field="${appointment.location}" class="form-control">
-        </label>
-        <p class="error" th:errors="${appointment.location}"></p>
-    </div>
-    <div>
-        <label>Profile
-            <select  class="form-select" th:field="${appointment.profile}">
+        <label>Person
+            <select  class="form-select" th:field="${pain.profile}">
                 <option th:each="profile : ${profiles}"
                         th:value="${profile.id}"
                         th:text="${profile.profileFirst}"
                 ></option>
             </select>
-<!--            <p class="error" th:errors="${appointment.profile}"></p>-->
         </label>
+        <p class="error" th:errors="${pain.painLocation}"></p>
     </div>
     <div class="form-group">
         <input type="submit" value="ADD" class="btn btn-success">

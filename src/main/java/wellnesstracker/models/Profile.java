@@ -31,6 +31,9 @@ public class Profile {
     @OneToMany(mappedBy = "profile")
     private final List<Medication> medications = new ArrayList<>();
 
+    @OneToMany(mappedBy = "profile")
+    private final List<Pain> pains = new ArrayList<>();
+
     public Profile(String profileFirst, String profileLast) {
         this.profileFirst = profileFirst;
         this.profileLast = profileLast;
@@ -62,9 +65,9 @@ public class Profile {
         return appointments;
     }
 
-    public List<Medication> getMedications() {
-        return medications;
-    }
+    public List<Medication> getMedications() {return medications;}
+
+    public List<Pain> getPains() {return pains;}
 
     @Override
     public String toString() {
