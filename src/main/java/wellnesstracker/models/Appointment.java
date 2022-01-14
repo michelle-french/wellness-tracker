@@ -2,17 +2,14 @@ package wellnesstracker.models;
 
 import javax.persistence.ManyToOne;
 import javax.persistence.*;
-import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.Objects;
+
 
 @Entity
-public class Appointment {
+public class Appointment extends AbstractEntity {
 
-    @Id
-    @GeneratedValue
-    private int id;
+
 
     @NotBlank
     private String name;
@@ -64,7 +61,6 @@ public class Appointment {
 
     public void setProfile(Profile profile) {this.profile = profile;}
 
-    public int getId() {return id;}
 
     @Override
     public String toString() {
@@ -76,14 +72,4 @@ public class Appointment {
                 '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Appointment appointment = (Appointment) o;
-        return id == appointment.id;
-    }
-
-    @Override
-    public int hashCode() {return Objects.hash(id);}
 }

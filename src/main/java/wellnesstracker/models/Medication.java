@@ -1,21 +1,14 @@
 package wellnesstracker.models;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.Objects;
 
 @Entity
-public class Medication {
-
-    @Id
-    @GeneratedValue
-    private int id;
+public class Medication extends AbstractEntity{
 
     @NotBlank(message = "Please provide medication name")
     private String medName;
@@ -94,10 +87,6 @@ public class Medication {
         this.profile = profile;
     }
 
-    public int getId() {
-        return id;
-    }
-
     @Override
     public String toString() {
         return "Medication{" +
@@ -109,16 +98,4 @@ public class Medication {
                 '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Medication medication = (Medication) o;
-        return id == medication.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
 }

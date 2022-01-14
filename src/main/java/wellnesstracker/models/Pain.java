@@ -1,21 +1,14 @@
 package wellnesstracker.models;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.Objects;
 
 @Entity
-public class Pain {
-
-    @Id
-    @GeneratedValue
-    private int id;
+public class Pain extends AbstractEntity{
 
     @NotBlank(message = "Please define pain location")
     private String painLocation;
@@ -62,8 +55,6 @@ public class Pain {
 
     public void setProfile(Profile profile) {this.profile = profile;}
 
-    public int getId() {return id;}
-
     @Override
     public String toString() {
         return "Pain{" +
@@ -75,14 +66,4 @@ public class Pain {
                 '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Pain pain = (Pain) o;
-        return id == pain.id;
-    }
-
-    @Override
-    public int hashCode() {return Objects.hash(id);}
 }
