@@ -4,18 +4,26 @@ import javax.persistence.ManyToOne;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+
 
 
 @Entity
 public class Appointment extends AbstractEntity {
 
-
+    private static final String START_DATE_FORMAT_PATTERN = "MM/dd/yy";
+    private static final SimpleDateFormat SIMPLE_DATE_FORMAT
+            = new SimpleDateFormat(START_DATE_FORMAT_PATTERN);
 
     @NotBlank
     private String name;
 
-    @NotBlank(message = "Please enter date")
-    private String date;
+    @NotNull(message = "Please enter date MM/DD/YY")
+    @DateTimeFormat(pattern = START_DATE_FORMAT_PATTERN)
+    private Date date;
 
     private Time time;
 
@@ -27,7 +35,7 @@ public class Appointment extends AbstractEntity {
     private Profile profile;
 
 
-    public Appointment(String name, String date, Time time, String location, Profile profile) {
+    public Appointment(String name, Date date, Time time, String location, Profile profile) {
         this.name = name;
         this.date = date;
         this.time = time;
@@ -41,12 +49,16 @@ public class Appointment extends AbstractEntity {
 
     public void setName(String name) {this.name = name;}
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getFormattedStartDate() {
+        return Appointment.SIMPLE_DATE_FORMAT.format(date);
     }
 
     public Time getTime() {return time;}

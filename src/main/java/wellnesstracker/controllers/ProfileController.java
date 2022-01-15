@@ -8,7 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import wellnesstracker.data.UserRepository;
 import wellnesstracker.models.Profile;
+import wellnesstracker.models.User;
+import wellnesstracker.models.dto.LoginFormDTO;
 
 import javax.validation.Valid;
 
@@ -20,15 +23,19 @@ public class ProfileController {
     private ProfileRepository profileRepository;
 
     @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
     private AppointmentRepository appointmentRepository;
 
     @GetMapping
     public String index(Model model){
+//        model.addAttribute("user", userRepository.findById());
         model.addAttribute("title", "WELCOME");
         return "profileCrud/index"; }
 
     @GetMapping("profile")
-    public String displayProfiles(Model model) {
+    public String displayProfiles( Model model) {
         model.addAttribute("title", "PROFILES");
         model.addAttribute("profiles", profileRepository.findAll());
         return "profileCrud/profiles";

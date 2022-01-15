@@ -1,8 +1,10 @@
 package wellnesstracker.models;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +28,17 @@ public class Profile extends AbstractEntity{
 
     @OneToMany(mappedBy = "profile")
     private final List<Pain> pains = new ArrayList<>();
+
+//    @ManyToOne
+//    @NotNull
+//    private User user;
+//
+//    public Profile(String profileFirst, String profileLast, User user) {
+//        this.profileFirst = profileFirst;
+//        this.profileLast = profileLast;
+//        this.user = user;
+//    }
+
 
     public Profile(String profileFirst, String profileLast) {
         this.profileFirst = profileFirst;
@@ -57,6 +70,10 @@ public class Profile extends AbstractEntity{
     public List<Medication> getMedications() {return medications;}
 
     public List<Pain> getPains() {return pains;}
+
+//    public User getUser() {return user;}
+//
+//    public void setUser(User user) {this.user = user;}
 
     @Override
     public String toString() {

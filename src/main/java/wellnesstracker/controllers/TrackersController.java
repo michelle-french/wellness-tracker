@@ -4,16 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import wellnesstracker.data.AppointmentRepository;
 import wellnesstracker.data.ProfileRepository;
 import wellnesstracker.models.Appointment;
+import wellnesstracker.models.Profile;
 import wellnesstracker.models.Time;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
 public class TrackersController {
@@ -26,14 +25,29 @@ public class TrackersController {
 
     @GetMapping("profile/tracker")
     public String displayTrackerLinks(Model model){
+
         model.addAttribute("title", "TRACKERS");
         return "trackers/index";
     }
 
     @GetMapping("profile/tracker/appts")
-    public String displayAppts(Model model){
-        model.addAttribute("title", "APPOINTMENTS");
-        model.addAttribute("appointments", appointmentRepository.findAll());
+//    @ResponseBody
+    public String displayAppts(@RequestParam(required = false) Integer profileId, Model model){
+
+        if(profileId == null) {
+            model.addAttribute("title", "All Appointments");
+            model.addAttribute("appointments", appointmentRepository.findAll());
+        } else {
+            Optional<Profile> result = profileRepository.findById(profileId);
+            if(result.isEmpty()) {
+                model.addAttribute("title", "Invalid Profile: " + profileId);
+            } else {
+                Profile profile = result.get();
+                model.addAttribute("title", "Appointments for: " + profile.getProfileFirst());
+                model.addAttribute("appointments", profile.getAppointments());
+            }
+        }
+
         return "trackers/appointments";
     }
 
