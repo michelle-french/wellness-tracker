@@ -51,7 +51,7 @@
         <label>   DATE
             <input th:field="${appointment.date}" class="form-control">
         </label>
-        <p class="error" th:errors="${appointment.getFormattedStartDate()}"></p>
+        <p class="error" th:errors="${appointment.date}"></p>
     </div>
     <div class="form-group">
         <label>LOCATION
@@ -81,7 +81,7 @@
 </nav>
 <nav>
     <ul class="nav">
-        <li class="nav-item"><a class="nav-link-3" href="/login">LOGOUT</a></li>
+        <li class="nav-item"><a class="nav-link-3" href="/logout">LOGOUT</a></li>
     </ul>
 </nav>
 
