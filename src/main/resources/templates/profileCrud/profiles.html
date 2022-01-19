@@ -18,7 +18,8 @@
 <table>
     <tr class="nav" th:each="profile : ${profiles}">
         <td class="nav-item">
-            <a class="nav-link-2" href="/profile/tracker" th:text="${profile.profileFirst + profile.profileLast}"></a></td>
+            <input type="hidden" name="${profile.id}">
+            <a class="nav-link-2" href="/profile/tracker/" th:text="${profile.profileFirst + profile.profileLast}"></a></td>
     </tr>
 </table>
 </nav>

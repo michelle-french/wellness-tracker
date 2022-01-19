@@ -4,7 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import wellnesstracker.data.AppointmentRepository;
 import wellnesstracker.data.ProfileRepository;
 import wellnesstracker.models.Appointment;
@@ -31,23 +34,25 @@ public class TrackersController {
     }
 
     @GetMapping("profile/tracker/appts")
-//    @ResponseBody
-    public String displayAppts(@RequestParam(required = false) Integer profileId, Model model){
+    public String displayAppts(Model model){
 
-        if(profileId == null) {
-            model.addAttribute("title", "All Appointments");
-            model.addAttribute("appointments", appointmentRepository.findAll());
-        } else {
-            Optional<Profile> result = profileRepository.findById(profileId);
-            if(result.isEmpty()) {
-                model.addAttribute("title", "Invalid Profile: " + profileId);
-            } else {
-                Profile profile = result.get();
-                model.addAttribute("title", "Appointments for: " + profile.getProfileFirst());
-                model.addAttribute("appointments", profile.getAppointments());
-            }
-        }
+//        if(profileId == null) {
+//            model.addAttribute("title", "All Appointments");
+//            model.addAttribute("appointments", appointmentRepository.findAll());
+//        } else {
+//            Optional<Profile> result = profileRepository.findById(profileId);
+//            if(result.isEmpty()) {
+//                model.addAttribute("title", "Invalid Profile: " + profileId);
+//            } else {
+//                Profile profile = result.get();
+//                model.addAttribute("title", "Appointments for: " + profile.getProfileFirst());
+//                model.addAttribute("appointments", profile.getAppointments());
+//            }
+//        }
 
+        model.addAttribute("title", "APPOINTMENTS");
+//        model.addAttribute("appointments", appointmentRepository.findById(profileId));
+        model.addAttribute("appointments", appointmentRepository.findAll());
         return "trackers/appointments";
     }
 
